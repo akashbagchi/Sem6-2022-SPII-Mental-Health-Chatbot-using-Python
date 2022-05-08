@@ -1,10 +1,12 @@
 import nltk
+nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
 import numpy
 import tflearn
 import tensorflow
+from tensorflow.python.framework import ops
 import random
 import json
 import pickle
@@ -59,7 +61,7 @@ except:
     training = numpy.array(training)
     output = numpy.array(output)
 
-tensorflow.reset_default_graph()
+ops.reset_default_graph()
 
 net = tflearn.input_data(shape=[None, len(training[0])])
 net = tflearn.fully_connected(net, 8)
@@ -69,11 +71,11 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
-try:
-    model.load("./model.tflearn")
-except:
-    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save("model.tflearn")
+# try:
+#     model.load("model.tflearn")
+# except:
+model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+model.save("model.tflearn")
 
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
