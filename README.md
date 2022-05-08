@@ -10,3 +10,8 @@ _Akshaya Nadathur_
 _M Pranjal Padakannaya_
 
 _Prarthana G_
+
+
+
+###Resources used:
+- [Mental Health FAQ for Chatbot](https://www.kaggle.com/datasets/narendrageek/mental-health-faq-for-chatbot)
