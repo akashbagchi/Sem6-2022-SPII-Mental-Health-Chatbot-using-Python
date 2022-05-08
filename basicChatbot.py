@@ -9,7 +9,7 @@ import random
 import json
 import pickle
 
-with open("./faq.json") as file:
+with open("./JSON/faq.json") as file:
     data = json.load(file)
 
 try:
